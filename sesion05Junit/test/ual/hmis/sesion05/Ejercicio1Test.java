@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ual.hmis.sesion05.Ejercicio1;
+import ual.hmis.sesion05.ejercicio1.Ejercicio1;
 
 
 class Ejercicio1Test {
