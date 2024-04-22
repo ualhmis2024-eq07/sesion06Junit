@@ -1,4 +1,4 @@
-package ual.hmis.sesion05;
+package ual.hmis.sesion05.ejercicio1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
