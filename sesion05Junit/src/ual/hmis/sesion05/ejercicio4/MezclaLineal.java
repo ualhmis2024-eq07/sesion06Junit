@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class MezclaLineal<T extends Comparable<T>> {
-    public static <T extends Comparable<T>> List<T> mezclarConjuntosOrdenados(List<T> list1, List<T> list2) {
+public class MezclaLineal<Number extends Comparable<Number>> {
+    public List<Number> mezclarConjuntosOrdenados(List<Number> list1, List<Number> list2) {
     	
-        HashSet<T> resultHashSet = new HashSet<>();
+        HashSet<Number> resultHashSet = new HashSet<>();
         int i = 0;
         int j = 0;
 
         while (i < list1.size() && j < list2.size()) {
-            T elem1 = list1.get(i);
-            T elem2 = list2.get(j);
+            Number elem1 = list1.get(i);
+            Number elem2 = list2.get(j);
 
             if (elem1.compareTo(elem2) < 0) {
             	resultHashSet.add(elem1);
@@ -38,7 +38,7 @@ public class MezclaLineal<T extends Comparable<T>> {
             j++;
         }
         
-        List<T> result = new ArrayList<>(resultHashSet);
+        List<Number> result = new ArrayList<>(resultHashSet);
         return result;
     }
 }
