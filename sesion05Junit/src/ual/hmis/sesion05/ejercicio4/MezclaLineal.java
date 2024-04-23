@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MezclaLineal<T extends Comparable<T>> {
     public static <T extends Comparable<T>> List<T> mezclarConjuntosOrdenados(List<T> list1, List<T> list2) {
-    	List<T> result;
+    	
         HashSet<T> resultHashSet = new HashSet<>();
         int i = 0;
         int j = 0;
@@ -37,7 +37,8 @@ public class MezclaLineal<T extends Comparable<T>> {
         	resultHashSet.add(list2.get(j));
             j++;
         }
-
-        return result = new ArrayList<>(resultHashSet);
+        
+        List<T> result = new ArrayList<>(resultHashSet);
+        return result;
     }
 }
