@@ -1,27 +1,22 @@
 package ual.hmis.sesion05.ejercicio3;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class Ejercicio3Test {
+class ejercicio3Test {
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Caso {index}: Password: {0}, Resultado esperado: {1}")
     @CsvSource({
-        "123, ************",
-        "password, password demasiado corto",
-        "secure, ********",
-        "password1234567890123456789012345678901234567890, password demasiado largo"
+            "123, password demasiado corto",
+            "abcdefg, ********",
+            "abcdefghijkl, ************",
+            "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno, password demasiado largo",
+            ", password demasiado corto", // Caso de cadena vacía
+            "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmn, *********************" // Caso para longitud > 40
     })
     void testDevuelvePassword(String password, String expected) {
-        // Arrange
-        ejercicio3 ejercicio3 = new ejercicio3();
-
-        // Act
-        String result = ejercicio3.devuelvePassword(password);
-
-        // Assert
-        assertEquals(expected, result);
+        ejercicio3 ej = new ejercicio3();
+        assertEquals(expected, ej.devuelvePassword(password));
     }
 }

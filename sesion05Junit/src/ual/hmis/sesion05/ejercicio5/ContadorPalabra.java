@@ -1,5 +1,4 @@
 package ual.hmis.sesion05.ejercicio5;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -12,15 +11,14 @@ class ValueComparator implements Comparator<String> {
     public ValueComparator(TreeMap<String, Integer> map) {
         this.map = map;
     }
-
     @Override
     public int compare(String a, String b) {
         return map.get(b).compareTo(map.get(a));
     }
-	
 }
-
 public class ContadorPalabra {
+	
+
 	public static List<String> obtenerPalabrasEnOrdenAlfabetico(String ruta) {
 		List<String> result = new ArrayList<>();
 		try(BufferedReader br = new BufferedReader(new FileReader(ruta))){

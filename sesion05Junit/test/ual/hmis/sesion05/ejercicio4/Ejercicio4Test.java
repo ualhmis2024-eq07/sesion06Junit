@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 
-class Ejercicio3Test {
+class Ejercicio4Test {
 	
 	static Stream<Arguments> mezclaProvider() {
 		return Stream.of(
