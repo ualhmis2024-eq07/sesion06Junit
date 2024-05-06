@@ -17,9 +17,7 @@ class ValueComparator implements Comparator<String> {
     }
 }
 public class ContadorPalabra {
-	
-
-	public static List<String> obtenerPalabrasEnOrdenAlfabetico(String ruta) {
+	public List<String> obtenerPalabrasEnOrdenAlfabetico(String ruta) {
 		List<String> result = new ArrayList<>();
 		try(BufferedReader br = new BufferedReader(new FileReader(ruta))){
 			String linea;
@@ -38,7 +36,7 @@ public class ContadorPalabra {
 		return result;
 	}
 	
-	public static List<String> obtenerPalabrasOrdenFrecuencia(String ruta) {
+	public List<String> obtenerPalabrasOrdenFrecuencia(String ruta) {
 		List<String> result = null;
 		List<String> aux = obtenerPalabrasEnOrdenAlfabetico(ruta);
 		TreeMap<String, Integer> palabraFrecuencia = new TreeMap<>();
@@ -51,12 +49,6 @@ public class ContadorPalabra {
 		result.sort(new ValueComparator(palabraFrecuencia));
 		
 		return result;
-	}
-	
-	public static void main(String[] args) {
-		String ruta = System.getProperty("user.dir") + File.separator + "src"
-				+ File.separator + "ual" + File.separator + "hmis" + File.separator + "sesion05" + File.separator + "ejercicio5" + File.separator + "archivo.txt";
-		System.out.println(obtenerPalabrasOrdenFrecuencia(ruta).toString());
 	}
 }
 
