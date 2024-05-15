@@ -144,6 +144,40 @@
 			</plugin>
 
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.5.0</version>
+				<configuration>
+					<!-- <reportOutputDirectory>
+		  	${project.reporting.outputDirectory}/../../docs
+		  </reportOutputDirectory> -->
+					<doclet>nl.talsmasoftware.umldoclet.UMLDoclet</doclet>
+					<docletArtifact>
+						<groupId>nl.talsmasoftware</groupId>
+						<artifactId>umldoclet</artifactId>
+						<version>2.1.0</version>
+					</docletArtifact>
+					<additionalOptions>
+						<!-- -umlImageFormat (svg | svg_img | png | eps | none) -->
+						<!-- <additionalOption>-umlImageFormat
+						svg_img,png</additionalOption> -->
+						<additionalOption>-umlImageFormat svg_img</additionalOption>
+						<additionalOption>-private</additionalOption>
+						<!--
+						<additionalOption>-createPumlFiles</additionalOption> -->
+						<additionalOption>-umlExcludedTypeReferences</additionalOption> <!--
+						añade metodos toString() y equals() -->
+						<!--
+						<additionalOption>-umlJavaBeanPropertiesAsFields</additionalOption> -->
+						<!-- <additionalOption>-umlCustomDirective "skinparam
+						classBackgroundColor
+					LightYellow"</additionalOption> -->
+					</additionalOptions>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
 				<version>3.0.5</version>
@@ -187,8 +221,10 @@
 					<effort>Max</effort>
 					<threshold>Low</threshold>
 					<failOnError>true</failOnError>
-					<includeFilterFile>${session.executionRootDirectory}/spotbugs-security-include.xml</includeFilterFile>
-					<excludeFilterFile>${session.executionRootDirectory}/spotbugs-security-exclude.xml</excludeFilterFile>
+					<includeFilterFile>
+						${session.executionRootDirectory}/spotbugs-security-include.xml</includeFilterFile>
+					<excludeFilterFile>
+						${session.executionRootDirectory}/spotbugs-security-exclude.xml</excludeFilterFile>
 					<plugins>
 						<plugin>
 							<groupId>com.h3xstream.findsecbugs</groupId>
@@ -205,21 +241,24 @@
 
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<!--
+		https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>5.7.1</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+		<!--
+		https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.7.1</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
+		<!--
+		https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-params</artifactId>
@@ -227,7 +266,8 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+		<!--
+		https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-runner</artifactId>
@@ -244,11 +284,20 @@
 		</dependency>
 
 		<!-- Example of vulnerable dependency -->
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+		<!--
+		https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
 			<version>4.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/nl.talsmasoftware/umldoclet -->
+		<dependency>
+			<groupId>nl.talsmasoftware</groupId>
+			<artifactId>umldoclet</artifactId>
+			<version>2.1.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
